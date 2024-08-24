@@ -17,6 +17,20 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def edit
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    @article = Article.find(params[:id])
+    if @article.update(params.require(:article).permit(:title, :description))
+      flash[:notice] = "Article Updated Successfully"
+      redirect_to @article
+    else
+      render "edit", status: :unprocessable_entity
+    end
+  end
+
   def show
     @article = Article.find(params[:id])
   end
