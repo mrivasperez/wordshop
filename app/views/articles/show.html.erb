@@ -5,11 +5,10 @@
         <%= link_to "Delete", article_path(@article), class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure that you want to delete this article?" } %>
     </div>
 </div>
+
 <p class="lead mb-0">by User</p>
 <p class="small text-muted">
 published <%= time_ago_in_words(@article.created_at) %> ago, last edited <%= time_ago_in_words(@article.updated_at) %> ago
 </p>
-
-
 
 <p><strong>Description:</strong> <%= @article.description %></p>
