@@ -6,7 +6,7 @@
     </div>
 </div>
 
-<p class="lead mb-0">by User</p>
+<p class="lead mb-0">by <%= @article.user.username %></p>
 <p class="small text-muted">
 published <%= time_ago_in_words(@article.created_at) %> ago, last edited <%= time_ago_in_words(@article.updated_at) %> ago
 </p>
