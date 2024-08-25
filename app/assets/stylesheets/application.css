@@ -17,3 +17,7 @@
 * {
   font-family: sans-serif;
 }
+
+textarea {
+  min-height: 300px !important;
+}
