@@ -1,25 +1,30 @@
-<h1>New Article</h1>
-<%= link_to "Home", articles_path %>
+<div class="d-flex justify-content-between align-items-center">
+  <h1>New Article</h1>
+  <%= link_to "Cancel", articles_path, :class => "btn btn-secondary" %>
+</div>
+
 <% if @article.errors.any? %>
-    <h2>Error</h2>
+  <div class="alert alert-warning my-4" role="alert">
+    <h4 class="alert-heading">Error</h4>
     <p>The article was not saved due to the following error(s).</p>
     <ul>
         <% @article.errors.full_messages.each do |msg| %>
            <li><%= msg %></li>
         <% end %>
     </ul>
+  </div>
 <% end %>
 
 <%= form_with scope: :article, url: articles_path, local: true do |f| %>
     <p> 
-      <%= f.label :title %><br/> 
-      <%= f.text_field :title %>
+      <%= f.label :title, class: "form-label" %><br/> 
+      <%= f.text_field :title, class: "form-control" %>
     </p>
     <p>
-      <%= f.label :description %><br/> 
-      <%= f.text_area :description %> 
+      <%= f.label :description, class: "form-label" %><br/> 
+      <%= f.text_area :description, class: "form-control" %> 
     </p>
     <p>
-      <%= f.submit %> 
+      <%= f.submit "Publish", :class => "btn btn-primary" %> 
     </p>
   <% end %>
