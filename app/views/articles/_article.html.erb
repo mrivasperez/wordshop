@@ -10,7 +10,7 @@
     <tbody>
         <% @articles.each do |article| %>
         <tr>
-            <td><%= link_to article.title, article_path(article), class: "fw-semibold" %> by <%= article.user.username %></td>
+            <td><%= link_to article.title, article_path(article), class: "fw-bold" %> by <%= link_to article.user.username, user_path(article.user) %></td>
             <td class="w-50"><%= article.description %></td>
             <td>
                 <div class="dropdown">
