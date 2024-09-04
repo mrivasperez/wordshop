@@ -2,3 +2,5 @@
 
 <h2>Articles</h2>
 <%= render "articles/article" %>
+
+<%= will_paginate @articles, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
