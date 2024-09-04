@@ -3,5 +3,10 @@
     <%= link_to "New Article", new_article_path, class: "btn btn-primary" %>
 </div>
 
-<%= will_paginate @articles %>
+<ul class="pagination">
+
+
+</ul>
 <%= render "articles/article" %>
+
+<%= will_paginate @articles, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
