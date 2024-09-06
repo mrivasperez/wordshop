@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       redirect_to user
     else
       flash.now[:alert] = "Hmm, it looks like something's not quite right. Let's try that again!"
-      render "new", status: :unprocessabe_entity
+      render "new", status: :unprocessable_entity
     end
   end
 
