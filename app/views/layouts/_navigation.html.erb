@@ -16,9 +16,18 @@
         <li class="nav-item">
           <a class="nav-link" href="/about">About</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/signup">Sign Up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Log In</a>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Logout", logout_path, class: "nav-link", data: { turbo_method: :delete } %>
+        </li>
       </ul>
+   
       
     </div>
-    <a class="btn btn-link" href="/signup">Sign Up</a>
   </div>
 </nav>
