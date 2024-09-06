@@ -1,6 +1,8 @@
 <div class="d-flex justify-content-between align-items-center">
     <h1>Articles</h1>
-    <%= link_to "New Article", new_article_path, class: "btn btn-primary" %>
+    <% if logged_in? %>
+        <%= link_to "New Article", new_article_path, class: "btn btn-primary" %>
+    <% end %>
 </div>
 
 <ul class="pagination">
