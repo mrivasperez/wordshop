@@ -1,6 +1,6 @@
-<h1><%= @user.username %></h1>
+<h1 class='display-1'><%= @user.username %></h1>
 
-<h2>Articles</h2>
+<h2 >Articles</h2>
 <%= render "articles/article" %>
 
 <%= will_paginate @articles, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
