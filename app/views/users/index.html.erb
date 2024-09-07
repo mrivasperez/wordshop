@@ -7,7 +7,10 @@
             <h6 class="card-subtitle"><%= pluralize(user.articles.count, "Article") %></h6>
             <div class="mt-3">
                 <%= link_to "View Profile", user, class: "btn btn-primary" %>
-                <%= link_to "Edit Profile", edit_user_path(user), class: "btn btn-outline-primary" %>
+                <% if logged_in? && user == current_user %>
+                    <%= link_to "Edit Profile", edit_user_path(user), class: "btn btn-outline-primary" %>
+                <% end %>
+                
             
             </div>
             
