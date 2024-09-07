@@ -4,3 +4,10 @@
 <%= render "articles/article" %>
 
 <%= will_paginate @articles, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+
+<% if logged_in? && @user == current_user %>
+<h2 class="mt-5">Settings</h2>
+
+<%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-light" %>
+<%= link_to "Delete Account", user_path(current_user), data: { turbo_confirm: "Are you sure you want to delete your account?", turbo_method: :delete }, class: "btn btn-danger" %>
+<% end %>
