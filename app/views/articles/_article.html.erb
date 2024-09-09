@@ -1,34 +1,26 @@
-<table class="table mt-4 table-striped">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th></th>
-        </tr>
-    </thead>
+<% @articles.each do |article| %>
+    <div class="col-md-6 my-2">
+        <div class="border rounded shadow-sm p-4">
+            <h3 class="mb-0 ">
+            <%= link_to article.title, article_path(article), class: "fw-bold text-decoration-none text-body" %>
+            </h3>
+            <p class="text-decoration-none text-body-secondary">by <%= link_to article.user.username, user_path(article.user), class: "text-decoration-none text-body-secondary" %></p>
+            <p><%= article.description %></p>
 
-    <tbody>
-        <% @articles.each do |article| %>
-        <tr>
-            <td><%= link_to article.title, article_path(article), class: "fw-bold" %> by <%= link_to article.user.username, user_path(article.user) %></td>
-            <td class="w-50"><%= article.description %></td>
-            <td>
-                <% if logged_in? && article.user == current_user %>
-                    <div class="dropdown">
+            <% if logged_in? && article.user == current_user %>
+                <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Actions
+                        Manage
                     </button>
                     <ul class="dropdown-menu">
                         <%= link_to "Show", article_path(article), class: "dropdown-item" %>
                         <%= link_to "Edit", edit_article_path(article), class: "dropdown-item" %>
                         <%= link_to "Delete", article_path(article), data: { turbo_method: :delete, turbo_confirm: "Are you sure that you want to delete this article?" }, class: "dropdown-item" %>
                     </ul>
-                    </div>   
-                    <% else %>
-                    <%= link_to "View", article_path(article), class: "link" %>
-                <% end %>
-            </td>
-        </tr>
-        <% end %>
-    </tbody>
-</table>
+                </div>   
+            <% else %>
+                <%= link_to "Continue Reading >", article_path(article), class: "link" %>
+            <% end %>
+        </div> 
+    </div>
+<% end %>
