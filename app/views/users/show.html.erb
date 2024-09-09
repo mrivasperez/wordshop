@@ -1,7 +1,10 @@
 <h1 class='display-1'><%= @user.username %></h1>
 
 <h2 >Articles</h2>
-<%= render "articles/article" %>
+
+<div class="row">
+    <%= render "articles/article" %>
+</div>
 
 <%= will_paginate @articles, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
 
